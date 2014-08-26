@@ -212,8 +212,8 @@ public class ConfigGenerator extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e){
 					nextApplication();
-					createConfigFile();
-					System.exit(0);
+					if(createConfigFile() == 0)
+						System.exit(0);
 				}
 			});
 			
@@ -265,25 +265,27 @@ public class ConfigGenerator extends JFrame{
 		}
 		
 		private void nextApplication(){
-			pointsList.add(currPoints);
-			pointsTable.getCellEditor().stopCellEditing();
-			for(int i = 0; i < dtm.getRowCount(); i++){
-				currNames.add((String)dtm.getValueAt(i, 2));
+			if(pointsList.size() > 0){
+				pointsList.add(currPoints);
+				pointsTable.getCellEditor().stopCellEditing();
+				for(int i = 0; i < dtm.getRowCount(); i++){
+					currNames.add((String)dtm.getValueAt(i, 2));
+				}
+				
+				namesList.add(currNames);
+				appNamesList.add(textfield.getText());
+				
+				currPoints = null;
+				currPoints = new ArrayList<Point>();
+				currNames = null;
+				currNames = new ArrayList<String>();
+				
+				textfield.setText("");
+				clearList();
 			}
-			
-			namesList.add(currNames);
-			appNamesList.add(textfield.getText());
-			
-			currPoints = null;
-			currPoints = new ArrayList<Point>();
-			currNames = null;
-			currNames = new ArrayList<String>();
-			
-			textfield.setText("");
-			clearList();
 		}
 		
-		private void createConfigFile(){
+		private int createConfigFile(){
 			String location = null;
 			final JFileChooser fc = new JFileChooser();
 			int returnVal = fc.showOpenDialog(this);
@@ -292,6 +294,8 @@ public class ConfigGenerator extends JFrame{
 				if(fc.getSelectedFile() != null)
 					location = fc.getSelectedFile().getAbsolutePath();
 			}
+			else
+				return -1;
 			File configFile = new File(location);
 			try {
 				configFile.createNewFile();
@@ -326,6 +330,7 @@ public class ConfigGenerator extends JFrame{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			return 0;
 		}
 	}
 	
