@@ -8,8 +8,10 @@ A small program designed to be used with the JGUII library. It automates the pro
 Go to the [latest release] (https://github.com/jackoconnor/JGUII-Config-Generator/releases) and download the current jar file.
 
 ## How to use it
-Execute the jar file and you will be greeted by two windows. In the foreground you should notice a small window like this: (link to image1).
+Execute the jar file and you will be greeted by two windows. In the foreground you should notice a small window like this: ![Foreground Window] (/Main-window-overview.png)
+
 And in the background a translucent window.
+
 Using the software is simple:
 
 1. Open the first application you wish to use (for example, firefox).
