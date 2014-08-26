@@ -5,7 +5,7 @@ A small program designed to be used with the JGUII library. It automates the pro
 [JGUII] (https://github.com/jackoconnor/JGUII) config files.
 
 # Get it
-Go to the latest release and download the current jar file.
+Go to the [latest release] (https://github.com/jackoconnor/JGUII-Config-Generator/releases) and download the current jar file.
 
 ## How to use it
 Execute the jar file and you will be greeted by two windows. In the foreground you should notice a small window like this: (link to image1).
